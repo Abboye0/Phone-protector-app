@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Protector Educational App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.section {
+    padding: 20px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.read-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.read-button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Phone Protector</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#protect-phone">Protect Your Phone</a></li>
+                <li><a href="#protect-account">Protect Your Account</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section">
+            <h2>Welcome to Phone Protector</h2>
+            <p>This app provides essential tips and guidelines to protect your phone and personal information from hackers and other threats.</p>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About the Developer</h2>
+            <div>
+                <button class="read-button" onclick="toggleContent('aboutContent', this)">Read</button>
+                <div id="aboutContent" class="content" style="display: none;">
+                    <p>This application was created to help users understand how to keep their devices safe and secure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="protect-phone" class="section">
+            <h2>How to Protect Your Phone</h2>
+            <div>
+                <button class="read-button" onclick="toggleContent('phoneContent', this)">Read</button>
+                <div id="phoneContent" class="content" style="display: none;">
+                    <ul>
+                        <li>Use a strong password or biometric lock.</li>
+                        <li>Keep your software updated.</li>
+                        <li>Install applications only from trusted sources.</li>
+                        <li>Enable remote tracking and wiping features.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="protect-account" class="section">
+            <h2>How to Protect Your Accounts</h2>
+            <div>
+                <button class="read-button" onclick="toggleContent('accountContent', this)">Read</button>
+                <div id="accountContent" class="content" style="display: none;">
+                    <ul>
+                        <li>Use two-factor authentication.</li>
+                        <li>Choose strong, unique passwords for each account.</li>
+                        <li>Be cautious of phishing scams and suspicious links.</li>
+                        <li>Regularly review account activity.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <div>
+                <button class="read-button" onclick="toggleContent('contactContent', this)">Read</button>
+                <div id="contactContent" class="content" style="display: none;">
+                    <p>If you have any questions, feel free to reach out!</p>
+                    <p>Email: support@phoneprotector.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Phone Protector. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function toggleContent(contentId, button) {
+    const content = document.getElementById(contentId);
+    const allContents = document.querySelectorAll('.content');
+    const buttons = document.querySelectorAll('.read-button');
+
+    // Hide all other contents and show their buttons
+    allContents.forEach((item) => {
+        if (item !== content) {
+            item.style.display = 'none';
+            buttons.forEach(btn => btn.style.display = 'block');
+        }
+    });
+
+    // Toggle the selected section's content
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        button.style.display = 'none'; // Hide the clicked button
+    } else {
+        content.style.display = 'none';
+        button.style.display = 'block'; // Show the button if content is hidden
+    }
+}
+
+    </script>
+</body>
+</html>
